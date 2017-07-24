@@ -1,22 +1,33 @@
 import { Component } from '@angular/core';
-import { Hero } from '../hero/hero';
+
+export class Hero {
+  id: number;
+  name: string;
+}
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'my-app',
+  template: `
+            <h1>{{title}}</h1>
+            <h2>{{hero.name}} details!</h2>
+             <div><label>id: </label>{{hero.id}}</div>
+             <div>
+                <label>name: </label>
+                <input [(ngModel)]="hero.name" placeholder="name">
+                </div>
+             `
 })
-
 export class AppComponent {
-  title = 'tour of shit';
-
+  title = 'Video Game Heroes';
   hero: Hero = {
     id: 1,
-    name: 'JM TANGAs'
+    name: 'Geralt of Rivia'
+  };
   }
   // hero: Hero = {
   //   id: null,
   //   // name: 'juancho'
   //   name: ''
   // }
-}
+
+
