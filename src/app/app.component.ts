@@ -11,11 +11,17 @@ export class Hero {
 })
 export class AppComponent {
   title = 'HoN';
-  hero: Hero = {
-  id: 1,  
-  name: 'Valk'
+  heroes = HEROES;
+  selectedHero: Hero = {
+    id: 1,  
+    name: 'Valkyrie',
   };
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+    }
 }
+
+
 
 const HEROES: Hero[] = [
   { id: 11, name: 'Empath' }, 
