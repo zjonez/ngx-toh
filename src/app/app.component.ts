@@ -1,10 +1,18 @@
 import { Component } from '@angular/core';
+import { Hero } from './hero';
 
-export class Hero {
-  id: number;
-  name: string;
-}
-
+const HEROES: Hero[] = [
+  { id: 1, name: 'Link of Hyrule' },
+  { id: 2, name: 'Noctis of Insomnia' },
+  { id: 3, name: 'Aloy of the Nora' },
+  { id: 4, name: 'Big Boss of the Diamond Dogs' },
+  { id: 5, name: 'Bayonetta of the Umbra' },
+  { id: 6, name: 'Joker of the Phantom Thieves' },
+  { id: 7, name: 'Death of the Four Horsemen' },
+  { id: 8, name: 'Ryu of the Brood' },
+  { id: 9, name: '2B of the YorHa' },
+  { id: 10, name: 'Geralt of Rivia' }
+];
 @Component({
   selector: 'my-app',
   template: `
@@ -17,14 +25,7 @@ export class Hero {
               <span class="badge">{{hero.id}}</span> {{hero.name}}
               </li>
             </ul>
-          <div *ngIf="selectedHero">
-            <h2>{{selectedHero.name}} details!</h2>
-             <div><label>id: </label>{{selectedHero.id}}</div>
-             <div>
-                <label>name: </label>
-                <input [(ngModel)]="selectedHero.name" placeholder="name">
-              </div>
-          </div>   
+            <hero-detail [hero]="selectedHero"></hero-detail>
               `,
   styles: [`
   .selected {
@@ -75,29 +76,17 @@ export class Hero {
     border-radius: 4px 0 0 4px;
   }
 `]
-            
+
 })
 
 export class AppComponent {
   title = 'Video Game Heroes';
-  selectedHero: Hero;
-  onSelect(hero: Hero): void {
-  this.selectedHero = hero;
-}
   heroes = HEROES;
-  };
+  selectedHero: Hero;
 
-  
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
+}
 
-const HEROES: Hero[] = [
-    { id: 11, name: 'Link of Hyrule' },
-    { id: 12, name: 'Noctis of Insomnia' },
-    { id: 13, name: 'Aloy of the Nora' },
-    { id: 14, name: 'Big Boss of the Diamond Dogs' },
-    { id: 15, name: 'Bayonetta of the Umbra' },
-    { id: 16, name: 'Joker of the Phantom Thieves' },
-    { id: 17, name: 'Death of the Four Horsemen' },
-    { id: 18, name: 'Ryu of the Brood' },
-    { id: 19, name: '2B of the YorHa' },
-    { id: 20, name: 'Geralt of Rivia' },
-];
+
