@@ -1,40 +1,37 @@
-import { Component } from '@angular/core';
-import { Hero } from './hero'; 
+import { Component, OnInit } from '@angular/core';
+import { Hero } from './hero';
 
-// export class Hero {
-//   id: number;
-//   name: string;
-// }
-
-
+import { HeroService } from './hero.service';
 
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [
+    HeroService
+  ]
 })
 
-export class AppComponent {
-  title = 'HoN';
-  heroes = HEROES;
-  selectedHero: Hero = {
-    id: 1,  
-    name: 'Valkyrie'
-  };
+export class AppComponent implements OnInit {
+  title: string = 'Hon';
+  heroes: Hero[];
+  selectedHero: Hero;
+
+  constructor(private heroService: HeroService) {
+  }
+
+  ngOnInit(): void {
+    this.getHeroes();
+  }
+
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
-    }
-}
+  }
 
-const HEROES: Hero[] = [
-  { id: 1, name: 'Empath' }, 
-  { id: 2, name: 'Pebbles' },
-  { id: 3, name: 'Predator' },
-  { id: 4, name: 'Chronos' },
-  { id: 5, name: 'Slither' },
-  { id: 6, name: 'Chipper' },
-  { id: 7, name: 'Pyromancer' },
-  { id: 8, name: 'Witch Hunter' },
-  { id: 9, name: 'Magnus' },
-  { id: 10, name: 'Zephyr' }
-];
+  getHeroes(): void {
+    this.heroService
+      // .getHeroes()
+      .getHeroesSlowly()
+      .then(heroes => this.heroes = heroes);
+  }
+}

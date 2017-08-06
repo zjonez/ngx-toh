@@ -1,11 +1,11 @@
-<div *ngIf="selectedHero">
+<div *ngIf="hero">
   <h2>
-    <div><label>id: </label>{{selectedHero.id}}<br></div>
-    {{selectedHero.name}} details!<br>
+    <div><label>id: </label>{{hero.id}}<br></div>
+    {{hero.name}} details!<br>
   </h2>
 
   <div>
     <label>name: </label>
-    <input [(ngModel)]="selectedHero.name" placeholder="name"/>
+    <input [(ngModel)]="hero.name" placeholder="name"/>
   </div>
 </div>
