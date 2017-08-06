@@ -1,19 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Hero } from './hero';
-import { HeroDetailComponent } from './hero-detail.component';
+import { HeroService } from './hero.service';
 
-const HEROES: Hero[] = [
-  { id: 1, name: 'Link of Hyrule' },
-  { id: 2, name: 'Noctis of Insomnia' },
-  { id: 3, name: 'Aloy of the Nora' },
-  { id: 4, name: 'Big Boss of the Diamond Dogs' },
-  { id: 5, name: 'Bayonetta of the Umbra' },
-  { id: 6, name: 'Joker of the Phantom Thieves' },
-  { id: 7, name: 'Death of the Four Horsemen' },
-  { id: 8, name: 'Ryu of the Brood' },
-  { id: 9, name: '2B of the YorHa' },
-  { id: 10, name: 'Geralt of Rivia' }
-];
+
 @Component({
   selector: 'my-app',
   template: `
@@ -76,17 +65,36 @@ const HEROES: Hero[] = [
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
-`]
-
+`],
+  providers: [
+    HeroService
+  ]
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Video Game Heroes';
-  heroes = HEROES;
+  heroes: Hero[];
   selectedHero: Hero;
+  name: string;
+
+  constructor(private heroService: HeroService) {
+  }
+
+  ngOnInit(): void {
+    this.getHeroes();
+  }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+  }
+
+  getHeroes(): void {
+    this.heroService
+      // .getHeroes()
+      .getHeroesSlowly()
+      .then((heroes) => {
+        this.heroes = heroes;
+      });
   }
 }
 
