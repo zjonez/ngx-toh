@@ -5,9 +5,9 @@ import { HeroService } from './hero.service';
 
 @Component({
   selector: 'my-heroes',
-  templateUrl: './app.component.html', // sabi sa instructions imove daw yung <h1>{{title}}</h1> pati yung <my-heroes></my-heroes> sa app.component.
-  styleUrls: ['./app.component.css'],
-  providers: [
+  templateUrl: './heroes.component.html',
+  styleUrls: ['./heroes.component.css'],
+  providers: [ //@JESSE kahit wala na to, kc nakalagay naman siya sa app.module(naging global service siya)
     // HeroService
   ]
 })
