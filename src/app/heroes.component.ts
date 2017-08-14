@@ -5,7 +5,7 @@ import { HeroService } from './hero.service';
 
 @Component({
   selector: 'my-heroes',
-  templateUrl: './app.component.html', // sabi sa instructions imove daw yung <h1>{{title}}</h1> pati yung <my-heroes></my-heroes> sa app.component.
+  templateUrl: './heroes.component.html',
   styleUrls: ['./app.component.css'],
   providers: [
     // HeroService
