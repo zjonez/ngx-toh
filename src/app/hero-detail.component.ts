@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Component, Input } from '@angular/core';
 import { Hero } from './hero';
 
@@ -20,4 +21,17 @@ import { Hero } from './hero';
 })
 export class HeroDetailComponent {
     @Input() hero: Hero;
+=======
+import { Component, Input } from '@angular/core';
+
+import { Hero } from './hero'; 
+
+@Component({
+  selector: 'hero-detail',
+  templateUrl: './hero-detail.component.html'
+})
+
+export class HeroDetailComponent {
+    @Input() hero: Hero;
+>>>>>>> 5ee0f06caede741ebd7cb689af35fa8efbb217cc
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { Hero } from './hero';
 import { HeroDetailComponent } from './hero-detail.component';
 
@@ -91,3 +92,18 @@ export class AppComponent {
 }
 
 
+=======
+
+
+@Component({
+    selector: 'my-app',
+    templateUrl: `
+        <h1>{{title}}</h1>
+        <my-heroes></my-heroes>
+        `
+})
+
+export class AppComponent {
+    title: string = 'Hon';
+}
+>>>>>>> 5ee0f06caede741ebd7cb689af35fa8efbb217cc
