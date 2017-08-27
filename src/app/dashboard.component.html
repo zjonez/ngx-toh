@@ -1,8 +1,14 @@
 <h3>Top Heroes of Legend</h3>
-<div class="grid grid-pad">
-    <a *ngFor = "let hero of heroes" [routerLink]="['/detail',
-    hero.id]" class="col-1-4">
-        <div class="module hero">
+
+<div>
+    <!-- hero is within this loop -->
+    <!-- routerlink equivalent to /details/[id of hero] -->
+    <a 
+        *ngFor = "let hero of heroes" 
+        [routerLink]="['/detail', hero.id]" 
+        class="col-1-4"
+    >
+        <div>
             <h4>{{hero.name}}</h4>
         </div>
     </a>
