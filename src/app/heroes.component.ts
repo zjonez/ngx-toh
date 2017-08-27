@@ -5,8 +5,8 @@ import { HeroService } from './hero.service';
 
 @Component({
   selector: 'my-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './heroes.component.html'
+  // styleUrls: ['./heroes.component.css']
 })
 
 export class HeroesComponent implements OnInit {
@@ -27,8 +27,8 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService
-      // .getHeroes()
-      .getHeroesSlowly()
+      .getHeroes()
+      // .getHeroesSlowly()
       .then(heroes => this.heroes = heroes);
   }
 }
