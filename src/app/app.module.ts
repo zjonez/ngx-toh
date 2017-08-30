@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail.component';
@@ -20,7 +21,8 @@ import { HeroService } from './hero.service';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
   providers: [HeroService],
   bootstrap: [AppComponent]
