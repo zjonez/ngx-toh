@@ -5,7 +5,8 @@ import { HeroService } from './hero.service';
 
 @Component ({
     selector: 'my-dashboard',
-    templateUrl: './dashboard.component.html'
+    templateUrl: './dashboard.component.html',
+    styleUrls: [ './dashboard.component.css' ]
 })
 
 export class DashboardComponent implements OnInit {
@@ -21,7 +22,7 @@ export class DashboardComponent implements OnInit {
             .heroService
             .getHeroes()
             .then(heroesFromService => {
-                this.heroes = heroesFromService.slice(0, 5)
+                this.heroes = heroesFromService.slice(0, 4)
             });
     }
 }

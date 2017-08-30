@@ -1,8 +1,6 @@
 <h3>Top Heroes of Legend</h3>
 
 <div>
-    <!-- hero is within this loop -->
-    <!-- routerlink equivalent to /details/[id of hero] -->
     <a 
         *ngFor = "let hero of heroes" 
         [routerLink]="['/detail', hero.id]" 
