@@ -17,8 +17,8 @@ import { HeroService } from './hero.service';
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
-    HeroDetailComponent,
+      DashboardComponent,
+      HeroDetailComponent,
     HeroesComponent
   ],
   imports: [
