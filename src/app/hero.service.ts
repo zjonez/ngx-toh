@@ -20,6 +20,11 @@ export class HeroService {
             .catch(this.handleError);
     }
 
+    private handleError(error: any): Promise<any> {
+        console.error('An error occured', error);
+        return Prommise.reject(error.message || error);
+    }
+
     getHeroesSlowly(): Promise<Hero[]> {
         return new Promise(resolve => {
             // Simulate server latency with 2 second delay
@@ -28,7 +33,10 @@ export class HeroService {
     }
 
     getHero(id: number): Promise<Hero> {
-        return this.getHeroes()
-            .then(heroes => heroes.find(hero => hero.id === id));
+        const url = '${this.heroesUrl}/${id}';
+        return this.http.get(url)
+            .toPromise
+            .then(response => response.json().data as Hero)
+            .catch(this.handleError);
     }
 }
